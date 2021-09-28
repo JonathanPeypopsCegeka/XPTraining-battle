@@ -6,7 +6,7 @@ public class FightSimulator {
     }
 
     public static Soldier fight(Soldier attacker, Soldier defender) {
-        if (attacker.getWeapon().getDamage() < defender.getWeapon().getDamage()) {
+        if (defender.getWeapon().isStrongerThan(attacker.getWeapon())){
             return defender;
         }
         return attacker;

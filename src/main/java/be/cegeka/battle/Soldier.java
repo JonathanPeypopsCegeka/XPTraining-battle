@@ -12,12 +12,11 @@ public class Soldier {
     private Weapon weapon;
 
     public Soldier(String name) {
-        Validate.isTrue(isNotBlank(name));
-        weapon = new BareFist();
-        this.name = name;
+        this(name, new BareFist());
     }
 
     public Soldier(String name, Weapon weapon) {
+        Validate.isTrue(isNotBlank(name));
         this.name = name;
         this.weapon = weapon;
     }

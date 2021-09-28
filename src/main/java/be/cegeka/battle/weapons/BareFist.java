@@ -1,6 +1,6 @@
 package be.cegeka.battle.weapons;
 
-public class BareFist implements Weapon {
+public class BareFist extends Weapon {
 
     @Override
     public int getDamage() {
