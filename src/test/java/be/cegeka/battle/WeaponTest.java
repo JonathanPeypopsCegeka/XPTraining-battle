@@ -1,5 +1,6 @@
 package be.cegeka.battle;
 
+import be.cegeka.battle.weapons.BareFist;
 import be.cegeka.battle.weapons.Spear;
 import be.cegeka.battle.weapons.Sword;
 import org.junit.Test;
@@ -10,20 +11,20 @@ public class WeaponTest {
     @Test
     public void WeaponStrategy_givenDefault_thenBareFist(){
         Soldier soldier = new Soldier("Wobbe");
-        assertThat(soldier.getWeaponType()).isEqualTo("Bare fists");
+        assertThat(soldier.getWeapon()).isInstanceOf(BareFist.class);
     }
 
     @Test
     public void WeaponStrategy_givenSpearWeaponAfterDefault_thenSpearIsUsed(){
         Soldier soldier = new Soldier("Wobbe");
         soldier.setWeaponStrategy(new Spear());
-        assertThat(soldier.getWeaponType()).isEqualTo("Spear");
+        assertThat(soldier.getWeapon()).isInstanceOf(Spear.class);
     }
 
     @Test
     public void WeaponStrategy_givenNameAndWeapon_thenDefaultWeaponNotUsed(){
         Soldier soldier = new Soldier("Henk", new Sword());
-        assertThat(soldier.getWeaponType()).isEqualTo("Sword");
+        assertThat(soldier.getWeapon()).isInstanceOf(Sword.class);
     }
 
 }

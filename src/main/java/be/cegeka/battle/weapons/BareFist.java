@@ -7,8 +7,4 @@ public class BareFist implements Weapon {
         return 1;
     }
 
-    @Override
-    public String getWeaponType() {
-        return "Bare fists";
-    }
 }

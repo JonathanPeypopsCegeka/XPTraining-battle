@@ -6,8 +6,4 @@ public class Spear implements Weapon {
         return 2;
     }
 
-    @Override
-    public String getWeaponType() {
-        return "Spear";
-    }
 }

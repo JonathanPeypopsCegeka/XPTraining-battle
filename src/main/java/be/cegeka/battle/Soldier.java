@@ -26,10 +26,6 @@ public class Soldier {
         return this.name;
     }
 
-    public String getWeaponType() {
-        return weapon.getWeaponType();
-    }
-
     public Weapon getWeapon() {
         return weapon;
     }

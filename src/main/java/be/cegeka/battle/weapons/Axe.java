@@ -6,8 +6,4 @@ public class Axe implements Weapon {
         return 3;
     }
 
-    @Override
-    public String getWeaponType() {
-        return "Axe";
-    }
 }
