@@ -28,9 +28,9 @@ public class Army {
         return getArmySize() != 0;
     }
 
-    public Army armyFight(Army attackingArmy, Army defendingArmy) {
-        simulateWar(attackingArmy, defendingArmy);
-        return getWinningArmy(attackingArmy, defendingArmy);
+    public Army armyFight(Army defendingArmy) {
+        simulateWar(this, defendingArmy);
+        return getWinningArmy(this, defendingArmy);
     }
 
     private void simulateWar(Army attackingArmy, Army defendingArmy) {

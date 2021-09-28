@@ -45,7 +45,7 @@ public class FightTest {
         bareFistArmy.enlist(new Soldier("Bart"));
 
 
-        assertThat(axeAttackingArmy.armyFight(axeAttackingArmy, bareFistArmy)).isEqualTo(axeAttackingArmy);
+        assertThat(axeAttackingArmy.armyFight(bareFistArmy)).isEqualTo(axeAttackingArmy);
 
 
     }
