@@ -29,27 +29,27 @@ public class Army {
     }
 
     public Army armyFight(Army defendingArmy) {
-        simulateWar(this, defendingArmy);
-        return getWinningArmy(this, defendingArmy);
+        simulateWar( defendingArmy);
+        return getWinningArmy(defendingArmy);
     }
 
-    private void simulateWar(Army attackingArmy, Army defendingArmy) {
-        while (attackingArmy.hasSoldiers() && defendingArmy.hasSoldiers()) {
-            Soldier winningFrontMan = attackingArmy.getFrontMan().fight(defendingArmy.getFrontMan());
-            removeLostFrontMan(attackingArmy, defendingArmy, winningFrontMan);
+    private void simulateWar(Army defendingArmy) {
+        while (this.hasSoldiers() && defendingArmy.hasSoldiers()) {
+            Soldier winningFrontMan = this.getFrontMan().fight(defendingArmy.getFrontMan());
+            removeLostFrontMan( defendingArmy, winningFrontMan);
         }
     }
 
-    private Army getWinningArmy(Army attackingArmy, Army defendingArmy) {
-        if (attackingArmy.hasSoldiers()) {
-            return attackingArmy;
+    private Army getWinningArmy( Army defendingArmy) {
+        if (this.hasSoldiers()) {
+            return this;
         }
         return defendingArmy;
     }
 
-    private void removeLostFrontMan(Army attackingArmy, Army defendingArmy, Soldier winningFrontMan) {
-        if (!attackingArmy.getFrontMan().equals(winningFrontMan)) {
-            attackingArmy.removeFrontMan();
+    private void removeLostFrontMan( Army defendingArmy, Soldier winningFrontMan) {
+        if (!this.getFrontMan().equals(winningFrontMan)) {
+            this.removeFrontMan();
         } else {
             defendingArmy.removeFrontMan();
         }
