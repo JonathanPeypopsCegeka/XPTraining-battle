@@ -16,4 +16,15 @@ public class Army {
     public Soldier getFrontMan(){
         return army.getFirst();
     }
+
+    public void removeFrontMan(){
+        army.removeFirst();
+    }
+
+    public int getArmySize(){
+        return army.size();
+    }
+    public boolean hasSoldiers(){
+        return getArmySize() != 0;
+    }
 }

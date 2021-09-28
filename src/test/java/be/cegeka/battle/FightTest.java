@@ -31,4 +31,21 @@ public class FightTest {
 
         assertThat(FightSimulator.fight(attacker,defender)).isEqualTo(attacker);
     }
+    @Test
+    public void FightSimulator_givenOneArmyWithOnlyAxesVSArmyWithOnlyBareFisters_thenTheAxeArmyWins(){
+        Army axeAttackingArmy = new Army();
+        Army bareFistArmy = new Army();
+
+        axeAttackingArmy.enlist(new Soldier("Bob", new Axe()));
+        axeAttackingArmy.enlist(new Soldier("Bob", new Axe()));
+        axeAttackingArmy.enlist(new Soldier("Bob", new Axe()));
+        bareFistArmy.enlist(new Soldier("Bob"));
+        bareFistArmy.enlist(new Soldier("Paul"));
+        bareFistArmy.enlist(new Soldier("Bart"));
+
+        FightSimulator fightSimulator = new FightSimulator();
+        assertThat(fightSimulator.armyFight(axeAttackingArmy, bareFistArmy)).isEqualTo(axeAttackingArmy);
+
+
+    }
 }
