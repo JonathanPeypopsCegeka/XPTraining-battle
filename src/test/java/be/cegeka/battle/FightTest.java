@@ -6,6 +6,7 @@ import be.cegeka.battle.weapons.Sword;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class FightTest {
     @Test
@@ -43,8 +44,8 @@ public class FightTest {
         bareFistArmy.enlist(new Soldier("Paul"));
         bareFistArmy.enlist(new Soldier("Bart"));
 
-        FightSimulator fightSimulator = new FightSimulator();
-        assertThat(fightSimulator.armyFight(axeAttackingArmy, bareFistArmy)).isEqualTo(axeAttackingArmy);
+
+        assertThat(axeAttackingArmy.armyFight(axeAttackingArmy, bareFistArmy)).isEqualTo(axeAttackingArmy);
 
 
     }
