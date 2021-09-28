@@ -12,19 +12,32 @@ public class FightSimulator {
         return attacker;
     }
 
-    public Army armyFight(Army attackinArmy, Army defendingArmy) {
-        while (attackinArmy.hasSoldiers() && defendingArmy.hasSoldiers()) {
-            Soldier winningFrontMan = fight(attackinArmy.getFrontMan(), defendingArmy.getFrontMan());
-            if (!attackinArmy.getFrontMan().equals(winningFrontMan)) {
-                attackinArmy.removeFrontMan();
-            } else {
-                defendingArmy.removeFrontMan();
-            }
+    public Army armyFight(Army attackingArmy, Army defendingArmy) {
+        simulateWar(attackingArmy, defendingArmy);
+        return getWinningArmy(attackingArmy, defendingArmy);
+    }
+
+    private void simulateWar(Army attackingArmy, Army defendingArmy) {
+        while (attackingArmy.hasSoldiers() && defendingArmy.hasSoldiers()) {
+            Soldier winningFrontMan = fight(attackingArmy.getFrontMan(), defendingArmy.getFrontMan());
+            removeLostFrontMan(attackingArmy, defendingArmy, winningFrontMan);
         }
-        if (attackinArmy.hasSoldiers()) {
-            return attackinArmy;
+    }
+
+    private Army getWinningArmy(Army attackingArmy, Army defendingArmy) {
+        if (attackingArmy.hasSoldiers()) {
+            return attackingArmy;
         }
         return defendingArmy;
     }
+
+    private void removeLostFrontMan(Army attackingArmy, Army defendingArmy, Soldier winningFrontMan) {
+        if (!attackingArmy.getFrontMan().equals(winningFrontMan)) {
+            attackingArmy.removeFrontMan();
+        } else {
+            defendingArmy.removeFrontMan();
+        }
+    }
+
 
 }
