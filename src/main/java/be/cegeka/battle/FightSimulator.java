@@ -5,13 +5,6 @@ public class FightSimulator {
     public FightSimulator() {
     }
 
-    public static Soldier fight(Soldier attacker, Soldier defender) {
-        if (defender.getWeapon().isStrongerThan(attacker.getWeapon())){
-            return defender;
-        }
-        return attacker;
-    }
-
     public Army armyFight(Army attackingArmy, Army defendingArmy) {
         simulateWar(attackingArmy, defendingArmy);
         return getWinningArmy(attackingArmy, defendingArmy);
@@ -19,7 +12,7 @@ public class FightSimulator {
 
     private void simulateWar(Army attackingArmy, Army defendingArmy) {
         while (attackingArmy.hasSoldiers() && defendingArmy.hasSoldiers()) {
-            Soldier winningFrontMan = fight(attackingArmy.getFrontMan(), defendingArmy.getFrontMan());
+            Soldier winningFrontMan = attackingArmy.getFrontMan().fight(defendingArmy.getFrontMan());
             removeLostFrontMan(attackingArmy, defendingArmy, winningFrontMan);
         }
     }

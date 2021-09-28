@@ -13,7 +13,7 @@ public class FightTest {
         Soldier attacker = new Soldier("Guan", new Axe());
         Soldier defender = new Soldier("Deag", new Sword());
 
-        assertThat(FightSimulator.fight(attacker, defender)).isEqualTo(attacker);
+        assertThat(attacker.fight(defender)).isEqualTo(attacker);
     }
 
     @Test
@@ -21,7 +21,7 @@ public class FightTest {
         Soldier attacker = new Soldier("Bob");
         Soldier defender = new Soldier("Def", new Axe());
 
-        assertThat(FightSimulator.fight(attacker,defender)).isEqualTo(defender);
+        assertThat(attacker.fight(defender)).isEqualTo(defender);
     }
 
     @Test
@@ -29,7 +29,7 @@ public class FightTest {
         Soldier attacker = new Soldier("EEN", new Sword());
         Soldier defender = new Soldier("Got stabbed", new Spear());
 
-        assertThat(FightSimulator.fight(attacker,defender)).isEqualTo(attacker);
+        assertThat(attacker.fight(defender)).isEqualTo(attacker);
     }
     @Test
     public void FightSimulator_givenOneArmyWithOnlyAxesVSArmyWithOnlyBareFisters_thenTheAxeArmyWins(){

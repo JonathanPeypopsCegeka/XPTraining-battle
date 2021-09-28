@@ -33,4 +33,11 @@ public class Soldier {
     public void setWeaponStrategy(Weapon weapon) {
         this.weapon = weapon;
     }
+
+    public Soldier fight(Soldier defender){
+        if (defender.getWeapon().isStrongerThan(this.getWeapon())){
+            return defender;
+        }
+        return this;
+    }
 }
